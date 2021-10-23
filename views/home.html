@@ -1,0 +1,24 @@
+{% load socialaccount %} {% providers_media_js %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>home</title>
+  </head>
+  <body>
+    {% if user.is_authenticated  %}
+    <center><div><h1> WELCOME {{user}}</h1>
+      <a class="login" href="accounts/logout">Logout </a>
+     
+    </div></center>
+    
+    {% else %}
+    <center><h1 class="user">
+     
+      <!-- <a href="http://localhost:8000/accounts/login"> accounts</a> -->
+      <a class="login" href="{% provider_login_url "google"  %}">Welcome Friend, please login </a>
+    </h1> </center>
+    
+    {% endif %}
+  </body>
+</html>
